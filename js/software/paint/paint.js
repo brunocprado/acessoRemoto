@@ -1,6 +1,6 @@
 var pTmp = $("#corpoPaint");
 var janelaTmp = pTmp.parent().parent();
-pTmp.attr("src",localShell + "imagem_php.php?arq=" + programaAtual);
+pTmp.attr("src",localShell + "imagem_php." + tipoServidor + "?arq=" + programaAtual);
 $("#corpoPaint").on("load",function(){
     $(this).attr("proporcao",$(this).width()/$(this).height());
     var janelaTmp = $(this).parent().parent().parent();     

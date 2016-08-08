@@ -1,2 +1,2 @@
-$("#pdf").attr("src",localShell + "pdf_php.php?arq=" + programaAtual);
+$("#pdf").attr("src",localShell + "pdf_php." + tipoServidor + "?arq=" + programaAtual);
 $("#pdf").attr("id","");
