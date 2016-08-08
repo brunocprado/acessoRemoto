@@ -1,0 +1,6 @@
+{
+    "excluir" : "rm",
+    "usuario" : "who",  
+    "ler" : "cat",
+    "infoSistema" : "cat /etc/*release" 
+}

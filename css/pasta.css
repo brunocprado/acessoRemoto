@@ -1,0 +1,123 @@
+.pasta{
+    background-color: #3a557b;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+.conteudoPasta{ 
+    overflow-y: auto !important; 
+/*    height: 100% !important;*/
+    position: absolute;
+    bottom:0;
+    top: 44px;
+    left: 0; right: 0;
+}
+.menuPasta{
+    height: 38px;
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0% 0%;
+    box-shadow: 0px 0px 5px !important;
+    padding: 2px 0px;
+    width: 100% !important;
+    top: 0;
+    position: relative;
+}
+.pasta .txtLocal{
+    display:block;
+    height: 20px;
+    background-color: white;
+    float:left;
+    margin: 4px 0 0 24px;
+    padding-left: 12px;
+    width: calc(100% - 65px);
+    z-index: 0;
+    border: solid 2px #aaa;
+    color: black;
+}
+.pasta .acessarPasta{
+    position:absolute;
+    right:2px;
+    width: 32px;
+    height: 32px;
+    z-index: 9999 !important;
+    background-image: url(../img/ui/ir.png);
+}
+.ativaMenu{
+    position: absolute;
+    width: 100%;
+    height: 5px; 
+    bottom: 0;  
+    cursor: pointer;
+    left:0;
+}
+.btnVoltar{
+    position:absolute;
+    left:2px;
+    width: 33px;
+    height: 32px;
+    z-index: 9999 !important;
+    background-image: url(../img/ui/voltar.png);
+}
+
+
+/*
+Modo Lista
+*/
+.conteudoPasta.lista .icone{
+    width: calc(100% - 18px);
+    display: block;
+    height: 20px;
+    margin: 2px;
+    padding: 6px;
+}
+.conteudoPasta.lista .icone img{
+    float:left;
+    width: 20px;
+    height: 20px;
+}
+.conteudoPasta.lista .icone span{
+    text-align: left;
+    margin-left: 26px;
+    line-height: 20px;
+}
+.lista .icone.ui-selecting,.lista .icone.ui-selected {
+	background: rgba(0, 31, 104, 0.4);
+    padding: 5px !important;
+    border: solid 1px #aae;
+}
+/*
+.icone {
+	width: 80px;
+	height: 80px;
+	padding: 10px;
+    border-radius: 5px;
+	z-index: 1;
+	float: left;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 4px;
+}
+
+.icone img {
+	margin: 0 auto;
+	display: block;
+	padding: 0 0 5px 0;
+	width: 50px;
+	height: 50px;
+}
+
+.icone span {
+	display: block;
+	border: 1px solid transparent;
+	text-align: center;
+	font-size: 12px;
+	color:white;
+	margin: 0 auto;
+    font-family: ‘Lucida Sans Unicode’, ‘Lucida Grande’, sans-serif;
+    font-weight: bold;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-shadow: 0px 0px 4px black;
+    max-height: 27px;
+}
+*/

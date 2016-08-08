@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="author" content="Bruno César do Prado Lopes" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="
+		user-scalable=no, initial-scale=1,
+		maximum-scale=1, minimum-scale=1,
+		width=device-width, height=device-height,
+		target-densitydpi=device-dpi"
+	/>
+	<title>Windows +Kernel</title>
+	<link rel="icon" type="image/ico" href="img/icons/shell32_40.ico" />
+	
+	<!--------| CSS |---------->
+	<link rel="stylesheet" type="text/css" href="js/lib/jquery/jquery.ui.css" />
+    <link rel="stylesheet" type="text/css" href="js/lib/menu/jquery.contextMenu.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/sistema.css" />
+	<link rel="stylesheet" type="text/css" href="css/icones.css" />
+	<link rel="stylesheet" type="text/css" href="css/pasta.css" />
+    <link rel="stylesheet" type="text/css" href="js/lib/codemirror/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="js/lib/codemirror/material.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+	<!------------------------->
+	
+	<!----| Bibliotecas |------>
+	<script type="application/javascript" src="js/lib/jquery/jquery.js"></script>
+	<script type="application/javascript" src="js/lib/jquery/jquery.ui.js"></script>
+	<script type="application/javascript" src="js/lib/jquery/jquery.elastic.js"></script>
+    <script type="application/javascript" src="js/lib/menu/jquery.contextMenu.min.js"></script>
+    <script type="application/javascript" src="js/lib/menu/jquery.ui.position.min.js"></script>
+	<script type="application/javascript" src="js/lib/mustache.js"></script>
+	<script type="application/javascript" src="js/lib/codemirror/codemirror.js"></script>
+	<script type="application/javascript" src="js/lib/codemirror/extensao.js"></script>
+	<script type="application/javascript" src="js/lib/jquery.fileDownload.js"></script>
+	<!------------------------->
+	
+	<script type="application/javascript" src="js/sistema.js"></script>
+	
+	<!-------| Classes sistema |------->
+	<script type="application/javascript" src="js/so/icones.js"></script>
+	<script type="application/javascript" src="js/so/janelas.js"></script>
+	<script type="application/javascript" src="js/so/itemMenu.js"></script>
+	<script type="application/javascript" src="js/formatos.js"></script>
+	<!-------------------------------->	
+	<script type="application/javascript" src="js/desktop.js"></script>
+</head>
+<body id="desktop">
+	<div id="icones" class="comMenu">
+	</div>
+    <div id="infoSO">
+        <img id="imgSO" src=""><br>
+        <label id="verSO"></label>
+    </div>   
+	<div id="barraTarefas">
+		<div id="menuIniciar">		
+			<img src="img/ico/logo.png">
+		</div>
+		<div id="programas">
+		</div>
+		<div id="horario">
+			<label id="hora"></label>
+			<label id="data"></label>
+		</div>
+	</div>
+    <div id="iconesTemp">
+    </div>
+    <div id="downloads">
+        <img>
+        <label></label>
+    </div>
+    <div id="menuSistema">
+        <a id="_menuUpload"><img src="img/ui/upload.png">Upload</a>
+        <a id="_menuLog"><img src="img/ui/log.png">Log de operações</a>
+        <a id="_menuSair"><img src="img/ui/sair.png">Sair</a>
+    </div>
+    <div id="infoSistema">
+        <img>
+        <div>
+            <label id="info_sistema"></label>
+            <div id="containerInfo">
+                <label id="info_sistemaE"></label>
+            </div>
+        </div>
+    </div>
+	<div id="overlay"></div>
+</body>
+</html>

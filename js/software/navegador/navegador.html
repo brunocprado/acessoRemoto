@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Navegador</title>
+</head>
+<body>
+	<style>
+		.navegador_url{
+			width: calc(100% - 46px);
+			display:block; 
+			float:left;
+
+            padding: 6px 10px;
+		}
+		.navegador_ir{
+			right: 0; top: 0px;
+            position:absolute;
+			width: 32px;
+			height: 32px;
+            background-image: url(img/ui/ir.png);
+            
+		}
+		#navegacao{
+            border: none;
+			width: 100%;
+			height: calc(100% - 25px);
+		}
+	</style>
+	
+	<input type="text" class="navegador_url" value="duckduckgo.com"/>
+    <a class="navegador_ir" onclick="carregaSite();"></a>
+	<iframe id="navegacao"></iframe>
+	
+</body>
+</html>

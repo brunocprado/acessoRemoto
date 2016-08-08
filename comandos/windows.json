@@ -1,0 +1,6 @@
+{
+    "excluir" : "del",
+    "usuario" : "echo %USERNAME%",  
+    "ler"     : "type"
+    
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Navegador</title>
+</head>
+<body>
+<style>
+	[processo="inicio"]{
+		width: 440px;
+		height: 290px;
+		left: calc(50% - 280px) !important;
+		top: calc(50% - 250px) !important;
+		z-index: 999 !important;
+	}
+	pre{
+		text-align:left;
+		display:inline-block;
+	}
+	#terminal_{
+		background-color: #000;
+        width: 100%;
+        height: 100%;	
+        overflow-y: auto;
+        overflow-x: hidden;	
+	}
+	#terminal_ pre{
+			text-align:left;
+			display:inline-block;
+			color: #0f0;
+            text-shadow: 0 0 5px #58E949;
+		}
+	#cmd{
+		padding: 0 5px;
+	}
+	#cmd .linha{
+		clear:both;
+		margin: 2px 0;
+	}
+	#cmd span{
+		color: green;
+		display:inline-block;
+		font-weight: bold;
+		float:left;
+		margin-right: 5px;
+	}	
+	#cmd input{
+        background-color: transparent;
+        margin:0;
+        border: none;
+        float:left;
+        width: 520px;
+        color: white;
+        display:inline-block;
+        outline: none;
+    }
+    #cmd pre{
+        margin:0;
+    }
+</style>
+	
+<div id="terminal_">
+<center><pre style="margin: 2px 0 0 0;">
+        _____                __ 
+ __ ___/ ____\_____________ |__|
+|  |  \   __\\_  __ \_  __ \|  |
+|  |  /|  |   |  | \/|  | \/|  |
+|____/ |__|   |__|   |__/\__|  |
+                        \______| 
+</pre></center>    
+<div id="cmd"></div>
+</div>
+</body>
+</html>
