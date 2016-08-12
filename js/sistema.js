@@ -12,9 +12,6 @@ var logOperacoes = "";
 var nOperacoes = 0;
 //=====================================//
 $(function() {
-
-    $(".barrauol").remove();
-    $(".barra-xpg").remove();
     
     renderizaDesktop();
     
