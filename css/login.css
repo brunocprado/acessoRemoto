@@ -1,0 +1,37 @@
+#maquinasContainer{
+    display:none;
+    background-color: rgba(0,0,0,.6);
+    background-image: url("../img/wpp.jpg");
+    background-size: cover;
+    z-index: 99999;
+    position: absolute;
+    top: 0; bottom:0; left:0; right: 0;
+    padding-top: calc(50vh - 100px);
+}
+#maquinas{
+    display:inline !important;
+}
+.maquinaVirtual {
+    display:inline-block;
+    height: 96px;
+    margin-right: 50px;
+}
+.maquinaVirtual img{
+    cursor: pointer;
+    background-color: rgba(255,255,255,.2);
+    height: 96px;
+    display:block;
+    border-radius: 96px;
+    box-shadow: 0 0 5px black;
+}
+.maquinaVirtual span{
+    margin-top: 10px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-family: "Arial";
+    font-size: 16px;
+    display: block;
+    text-align: center;
+    text-shadow: 0 0 4px black;
+}

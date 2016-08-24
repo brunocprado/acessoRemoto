@@ -6,79 +6,75 @@ var localShell = "";
 var sistema = "";
 var usuario = "";
 var comandos = "";
+var maquinas = {};
 //=====| Variaveis de operação |=======//
 var programaAtual = "";
 var logOperacoes = "";
 var nOperacoes = 0;
 //=====================================//
+
+var horario = function() {
+    var data = new Date();
+    var hora = data.getHours();
+    var min = data.getMinutes();
+    if(hora < 10){hora = "0"+hora;}
+    if(min < 10){min = "0"+min;}
+    return hora + ':' + min;
+}
+var data = function(){
+    var d = new Date();
+    var dia = d.getDate();
+    var mes = d.getMonth();
+    var ano = (d.getYear()-100)+2000;
+    if(dia < 10){dia = "0"+dia;}
+    if(mes < 10){mes = "0"+mes;}
+    return dia + "/"+ mes + "/" + ano;
+}
+
 $(function() {
     
     renderizaDesktop();
     
-	var horario = function() {
-		var data = new Date();
-		var hora = data.getHours();
-		var min = data.getMinutes();
-		if(hora < 10){hora = "0"+hora;}
-		if(min < 10){min = "0"+min;}
-		return hora + ':' + min;
-	}
-	var data = function(){
-		var d = new Date();
-		var dia = d.getDate();
-		var mes = d.getMonth();
-		var ano = (d.getYear()-100)+2000;
-		if(dia < 10){dia = "0"+dia;}
-		if(mes < 10){mes = "0"+mes;}
-		return dia + "/"+ mes + "/" + ano;
-	}
+	
 
 	$("#hora").html(horario());
 	$("#data").html(data());
 
 	setInterval(function() { $('#hora').html(horario()); }, 1000);	
     
-//    $.getJSON("configuracoes.json",function(c){
-//        console.log(c);
-//        localShell = c.local;
-//        usuario = c.usuario;
-//        sistema = c.sistema;
-//        carregaDesktop();
-//        if(c == ""){
-//            iniciaConf();
-//        } else {
-//            $.getJSON("comandos/" + sistema.toLowerCase() + ".json",function(r){
-//                comandos = r;
-//            });
-//            logOperacoes = "Iniciado em " + data() + " " + horario() + "\n" + "Conectado a: " + localShell + "\n";
-//            $("#imgSO").attr("src","img/" + sistema + ".png");
-//            $("#verSO").html(sistema);
-//        }  
-//    });
-    
     $.ajax({
         url: "configuracoes.json",
         async: false,
         dataType: "json",
         success: function(c){
-            localShell = c.local;
-            usuario = c.usuario;
-            sistema = c.sistema;
-            tipoServidor = c.tipo;
-            if(c.tipo == "java"){ tipoServidor = "jsp"; }
-            carregaDesktop();
-            $.getJSON("comandos/" + sistema.toLowerCase() + ".json",function(r){
-                comandos = r;
-            });
-            logOperacoes = "Iniciado em " + data() + " " + horario() + "\n" + "Conectado a: " + localShell + "\n";
-            $("#imgSO").attr("src","img/" + sistema + ".png");
-            $("#verSO").html(sistema);
+            if(Object.keys(c).length > 1){
+                //==| Exibe seleção máquina |==//
+                for(var i=0;i<Object.keys(c).length;i++){
+                    $(Mustache.render(
+                        desktop.templates.maquina, {
+                            ID:     Object.keys(c)[i],
+                            sistema:    c[Object.keys(c)[i]].sistema,
+                            nome: Object.keys(c)[i]
+                        }
+                    )).appendTo("#maquinas");
+                }
+                maquinas = c;
+                $("#maquinasContainer").show();
+            } else {
+                carregaMaquina(c.local,c.usuario,c.sistema,c.tipo);
+            }  
+        },
+        error: function(){
+            iniciaConf();
         }
     });
     
-    if(sistema == ""){
-        iniciaConf();
-    }
+    //SELEÇÃO DE MAQUINA
+    $(".maquinaVirtual").click(function(e){
+        var temp = maquinas[$(this).attr("idMaquina")];
+        carregaMaquina(temp.local,temp.usuario,temp.sistema,temp.tipo);
+        $("#maquinasContainer").hide();
+    });
 
 //  Funções de drag and drop 
     $("#icones").selectable({
@@ -152,6 +148,21 @@ $(function() {
         $(this).fadeOut(400);
     });
 });
+function carregaMaquina(local,usr,so,tipo){
+    localShell = local;
+    usuario = usr;
+    sistema = so;
+    tipoServidor = tipo;
+    if(tipo == "java"){ tipoServidor = "jsp"; }   
+    $.getJSON("comandos/" + sistema.toLowerCase() + ".json",function(r){
+        comandos = r;
+    });
+    carregaDesktop();
+    logOperacoes = "Iniciado em " + data() + " " + horario() + "\n" + "Conectado a: " + localShell + "\n";
+    $("#imgSO").attr("src","img/" + sistema + ".png");
+    $("#verSO").html(sistema);
+    $("#infoSO").show();
+}     
 function carregaInfo(){
     $.get(localShell + "shell." + tipoServidor,{cmd:"uname"},function(uname){
         uname = uname.replace(/(\r\n|\n|\r)/gm,"");
@@ -231,10 +242,6 @@ function carregaDesktop(){
 }
 function executaComando(c,f){
     $.post(localShell + "shell." + tipoServidor,{cmd:c},function(r){
-        r = r.replace("\n","");
-        r = r.replace("\n","");
-        r = r.replace("\n","");
-        r = r.replace("\n","");
         f(r);
         logOperacoes += (++nOperacoes) + ": " + c + "\n";
     });

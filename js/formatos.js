@@ -29,4 +29,9 @@ desktop.templates = {
 		+ '<span>{{titulo}}</span>'
 	+ '</div>',
 
+    maquina:
+    '<div class="maquinaVirtual" idMaquina="{{ID}}">'
+        + '<img src="img/{{sistema}}">'
+        + '<span>{{nome}}</span>'
+    + '</div>'
 }

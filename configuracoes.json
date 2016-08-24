@@ -1,0 +1,23 @@
+{
+    "Principal" : {
+        "local" : "",
+        "tipo" : "php",
+        "sistema" : "win",
+        "usuario" : "bruno",
+        "senha" : "123"
+    },
+    "Notebook" : {
+        "local" : "",
+        "tipo" : "php",
+        "sistema" : "osx",
+        "usuario" : "bruno",
+        "senha" : "123"
+    },
+    "Teste" : {
+        "local" : "",
+        "tipo" : "php",
+        "sistema" : "linux",
+        "usuario" : "bruno",
+        "senha" : "123"
+    }
+}
