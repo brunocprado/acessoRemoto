@@ -160,7 +160,7 @@ function carregaMaquina(local,usr,so,tipo){
     carregaDesktop();
     logOperacoes = "Iniciado em " + data() + " " + horario() + "\n" + "Conectado a: " + localShell + "\n";
     $("#imgSO").attr("src","img/" + sistema + ".png");
-    $("#verSO").html(sistema);
+    $("#verSO").html(sistema.toUpperCase());
     $("#infoSO").show();
 }     
 function carregaInfo(){
