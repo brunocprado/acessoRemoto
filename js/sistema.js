@@ -35,8 +35,6 @@ $(function() {
     
     renderizaDesktop();
     
-	
-
 	$("#hora").html(horario());
 	$("#data").html(data());
 
@@ -61,7 +59,7 @@ $(function() {
                 maquinas = c;
                 $("#maquinasContainer").show();
             } else {
-                carregaMaquina(c.local,c.usuario,c.sistema,c.tipo);
+                carregaMaquina(c.local,c.usuario,c.sistema,c.tipo,c.senha);
             }  
         },
         error: function(){
@@ -72,7 +70,7 @@ $(function() {
     //SELEÇÃO DE MAQUINA
     $(".maquinaVirtual").click(function(e){
         var temp = maquinas[$(this).attr("idMaquina")];
-        carregaMaquina(temp.local,temp.usuario,temp.sistema,temp.tipo);
+        carregaMaquina(temp.local,temp.usuario,temp.sistema,temp.tipo,temp.senha);
         $("#maquinasContainer").hide();
     });
 
@@ -148,12 +146,13 @@ $(function() {
         $(this).fadeOut(400);
     });
 });
-function carregaMaquina(local,usr,so,tipo){
+function carregaMaquina(local,usr,so,tipo,senha){
     localShell = local;
     usuario = usr;
     sistema = so;
     tipoServidor = tipo;
-    if(tipo == "java"){ tipoServidor = "jsp"; }   
+    if(tipo == "java"){ tipoServidor = "jsp"; }  
+    $.post(localShell + "login." + tipoServidor,{"login" : usuario,"senha":senha});
     $.getJSON("comandos/" + sistema.toLowerCase() + ".json",function(r){
         comandos = r;
     });
