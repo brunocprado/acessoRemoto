@@ -31,7 +31,7 @@ desktop.templates = {
 
     maquina:
     '<div class="maquinaVirtual" idMaquina="{{ID}}">'
-        + '<img src="img/{{sistema}}">'
+        + '<img src="img/{{sistema}}.png">'
         + '<span>{{nome}}</span>'
     + '</div>'
 }

@@ -53,7 +53,7 @@ $(function() {
                     $(Mustache.render(
                         desktop.templates.maquina, {
                             ID:     Object.keys(c)[i],
-                            sistema:    c[Object.keys(c)[i]].sistema,
+                            sistema:    c[Object.keys(c)[i]].sistema.toUpperCase(),
                             nome: Object.keys(c)[i]
                         }
                     )).appendTo("#maquinas");
