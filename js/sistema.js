@@ -12,7 +12,12 @@ var programaAtual = "";
 var logOperacoes = "";
 var nOperacoes = 0;
 //=====================================//
-
+//var client = new PHPRPC_Client('http://localhost:8080/index.aspx', ['add', 'sub']);  
+//client.setKeyLength(256);  
+//client.setEncryptMode(2);  
+//client.add(1, 2, function (result, args, output, warning) {  
+//    alert(result);  
+//}); 
 var horario = function() {
     var data = new Date();
     var hora = data.getHours();
