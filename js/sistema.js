@@ -11,6 +11,7 @@ var maquinas = {};
 var programaAtual = "";
 var logOperacoes = "";
 var nOperacoes = 0;
+var mid = null;
 //=====================================//
 //var client = new PHPRPC_Client('http://localhost:8080/index.aspx', ['add', 'sub']);  
 //client.setKeyLength(256);  
@@ -34,6 +35,17 @@ var data = function(){
     if(dia < 10){dia = "0"+dia;}
     if(mes < 10){mes = "0"+mes;}
     return dia + "/"+ mes + "/" + ano;
+}
+
+function iniciaMid(){
+    mid = new Worker("js/middleware.js");
+    mid.postMessage({"tid": -1,"maquinas":maquinas});
+    mid.onmessage = function(e) {
+        console.log(e.data);
+    };
+}
+function adicionaTarefa(conteudo){
+    mid.postMessage({"tid": Math.floor((Math.random()*99999)-1),"conteudo":conteudo});
 }
 
 $(function() {
