@@ -122,7 +122,7 @@ var PHPRPC_Client = (function () {
          * http://www.ugia.cn/?p=85
          */
         function createXMLHttp() {
-            if (window.XMLHttpRequest) {
+            if (true) {
                 var objXMLHttp = new XMLHttpRequest();
                 // some older versions of Moz did not support the readyState property
                 // and the onreadystate event so we patch it!

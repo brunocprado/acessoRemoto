@@ -54,6 +54,17 @@ function renderizaDesktop(){
         renomear: false,
             pasta: ''
     }).render('#icones')
+    
+    desktop.icones.rpc = new icone()
+    desktop.icones.rpc.set({
+        ID:     'rpc',
+        img:    'rpc',
+        texto:   'Computação Distribuída',
+        conteudo:   '##rpc##',
+        parametro:  '',
+        renomear: false,
+            pasta: ''
+    }).render('#icones')
 
 //    desktop.icones.terminal.render('#icones');
 //    desktop.icones.notepad.render('#icones');

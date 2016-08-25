@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Navegador</title>
+</head>
+<body>
+	<style>
+        #rpcContainer{
+            padding: 10px;
+            background-color: rgba(0,0,0,.6);
+            position: absolute;
+            top: 0; right: 0; left: 0; bottom: 0;
+        }
+        .estadoMaquina{
+            line-height: 40px;
+            display:block;
+        }
+        .estadoMaquina img{
+            height: 32px; width: 32px;
+            display:inline-block;
+            margin-right: 10px;
+            
+        }
+        .estadoMaquina span{
+            color: white;
+            font-family: "Arial";
+            display: inline-block;
+            position: absolute;
+        }
+        .estadoMaquina .estado{
+            right: 10px;
+            color: #25b125;
+            font-weight: bold;
+        }
+        .estadoMaquina .estado.inativo{
+            color: #ff4f4f !important;
+        }
+	</style>
+    <div id="rpcContainer">
+    </div>
+</body>
+</html>

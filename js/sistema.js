@@ -37,17 +37,6 @@ var data = function(){
     return dia + "/"+ mes + "/" + ano;
 }
 
-function iniciaMid(){
-    mid = new Worker("js/middleware.js");
-    mid.postMessage({"tid": -1,"maquinas":maquinas});
-    mid.onmessage = function(e) {
-        console.log(e.data);
-    };
-}
-function adicionaTarefa(conteudo){
-    mid.postMessage({"tid": Math.floor((Math.random()*99999)-1),"conteudo":conteudo});
-}
-
 $(function() {
     
     renderizaDesktop();
