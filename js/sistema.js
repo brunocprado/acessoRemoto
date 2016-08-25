@@ -90,6 +90,14 @@ $(function() {
         carregaMaquina(temp.local,temp.usuario,temp.sistema,temp.tipo,temp.senha);
         $("#maquinasContainer").hide();
     });
+    
+    $("#adicionaMaquina").click(function(e){
+        if($("#maquinasContainer").css("top") == "0px") {
+            $("#maquinasContainer").animate({'top':"-200px",'bottom': "200px"});
+        } else {
+            $("#maquinasContainer").animate({'top':"0px",'bottom': "0px"});
+        }
+    });
 
 //  Funções de drag and drop 
     $("#icones").selectable({
@@ -178,7 +186,7 @@ function carregaMaquina(local,usr,so,tipo,senha){
     $("#imgSO").attr("src","img/" + sistema + ".png");
     $("#verSO").html(sistema.toUpperCase());
     $("#infoSO").show();
-}     
+}    
 function carregaInfo(){
     $.get(localShell + "shell." + tipoServidor,{cmd:"uname"},function(uname){
         uname = uname.replace(/(\r\n|\n|\r)/gm,"");
@@ -397,8 +405,12 @@ function sair(){
     if(confirm("Deseja sair?")){
         $("#icones").html('');
         renderizaDesktop();
-        $("#overlay").show();
-        iniciaConf();
-        $("#menuSistema").hide();
+        if(Object.keys(maquinas).length > 1){
+            $("#maquinasContainer").show();
+        } else {
+             $("#overlay").show();
+            iniciaConf();
+            $("#menuSistema").hide();
+        }      
     }
 }
