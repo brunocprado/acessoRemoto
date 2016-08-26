@@ -1,4 +1,7 @@
 iniciaMid();
+$("#btnAdicionaTarefa").click(function(e){
+    adicionaTarefa("a");
+});
 function iniciaMid(){
     mid = new Worker("js/middleware.js");
     mid.postMessage({"tid": -1,"maquinas":maquinas});
