@@ -1,13 +1,31 @@
 <?php
 
-    session_start();
+    //set_time_limit(5);
 
-    if(!$_SESSION['logado']){
-        echo "Não está logado";
-        exit();
-    }
-    
+//    session_start();
+//
+//    if(!$_SESSION['logado']){
+//        echo "Não está logado";
+//        exit();
+//    }
+//    
     header("Access-Control-Allow-Origin: *");
-    $output = shell_exec($_POST['cmd']);
-    echo "$output";
+//    $output = passthru("top");
+//    //$output = shell_exec($_POST['cmd']);
+//    echo "$output";
+
+
+
+
+while (@ ob_end_flush()); // end all output buffers if any
+
+$proc = popen("top", 'r');
+echo '<pre>';
+while (!feof($proc)) {
+    echo fread($proc, 4096);
+    @ flush();
+    //ob_start();
+    echo "/*/FIM/*/;";
+}
+echo '</pre>';
 ?>
