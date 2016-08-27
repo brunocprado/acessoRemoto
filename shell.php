@@ -19,13 +19,19 @@
 
 while (@ ob_end_flush()); // end all output buffers if any
 
-$proc = popen("top", 'r');
+$proc = popen("ping 127.0.0.1", 'r');
 echo '<pre>';
-while (!feof($proc)) {
+    
+while (!feof($proc)) { 
+    ob_end_flush();
     echo fread($proc, 4096);
-    @ flush();
-    //ob_start();
-    echo "/*/FIM/*/;";
+    //@ flush();
+    
+    ob_flush();
+    flush();
+    
+    ob_start();
+   // echo "/*/FIM/*/;";
 }
 echo '</pre>';
 ?>
