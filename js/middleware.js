@@ -1,8 +1,10 @@
 //importScripts("lib/rpc/phprpc_client.js","lib/rpc/xxtea.js","lib/rpc/bigint.js","lib/rpc/base64.js","lib/rpc/phpserializer.js");
 
+//======| Dados |=======//
+var maquinas = {};
+//=====| RUNTIME |=====//
 var pilha = [];
 var estadoMaquinas = [];
-var maquinas = {};
 
 function defineTarefa(maquina,tarefa){
     pilha.pop(tarefa);
@@ -15,7 +17,6 @@ function defineTarefa(maquina,tarefa){
             self.postMessage("Concluido | TID:" + tarefa.tid + " Tarefa: " + tarefa.conteudo + " | " + Object.keys(maquinas)[maquina]);
             self.postMessage({"estado":2,"tid":tarefa.tid,"maquina":maquina});
             estadoMaquinas[maquina] = 0;
-
             ///VERIFICA FILA e atribui nova tarefa <- TODO
             if(pilha.length > 0){
                 defineTarefa(maquina,pilha[pilha.length -1]);

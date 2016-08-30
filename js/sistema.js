@@ -159,7 +159,32 @@ $(function() {
         },600);
         $(this).fadeOut(400);
     });
+    
+    
+    document.getElementById('desktop').addEventListener('dragenter',mostraDrag,false);
+    var drop = document.getElementById('drop-overlay');
+    drop.addEventListener('dragover', mostraDrag, false);
+    drop.addEventListener('drop', handleDrop, false);
+    drop.addEventListener('dragleave', escondeDrag, false);    
 });
+
+function mostraDrag(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    document.getElementById('drop-overlay').style.display = 'block';
+    //document.getElementById('menuMapa').style.display = 'none';
+    return false;
+}
+
+function escondeDrag(e) {
+    document.getElementById('drop-overlay').style.display = 'none';
+   // document.getElementById('menuMapa').style.display = 'block';
+}
+
+function handleDrop(e){
+    
+}
+
 function carregaMaquina(local,usr,so,tipo,senha){
     localShell = local;
     usuario = usr;

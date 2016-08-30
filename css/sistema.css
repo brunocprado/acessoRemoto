@@ -353,3 +353,24 @@ Info Sistema
     top:0;left:0;right:0;bottom:0;
     position: absolute;
 }
+
+
+/*
+DROP
+*/
+
+
+#drop-overlay {
+    display: none;
+    z-index: 9999;
+    color: white;
+    border: white dashed 8px;
+    position: absolute;
+    top: 0; bottom:0; left:0; right: 0;
+    background-color: rgba(0,0,0,.4);
+    background-image: url('../img/ico/upload.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+

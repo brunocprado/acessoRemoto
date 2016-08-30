@@ -1,3 +1,7 @@
+//TODO 
+//- Implementar WebSocket com servidor nodeJS
+//- verificação de load da máquina para a atribuicao de tarefas
+
 iniciaMid();
 $("#btnAdicionaTarefa").click(function(e){
     adicionaTarefa("a");
@@ -15,6 +19,9 @@ function iniciaMid(){
             $(".estadoMaquina[idMaquina=" + e.data.maquina + "] .estado").html("Inativo");
         }
     };
+    
+//    var teste = new WebSocket
+    
     var estadoMaquina = '<div class="estadoMaquina" idMaquina="{{ID}}">'
         + '<img src="img/{{sistema}}.png">'
         + '<span class="nomeMaquina">{{nome}}</span>'
