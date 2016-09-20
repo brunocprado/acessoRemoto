@@ -1,3 +1,3 @@
-[submodule "js/software/sistemaDistribuido"]
-	path = js/software/sistemaDistribuido
+[submodule "sistemaDistribuido"]
+	path = sistemaDistribuido
 	url = https://github.com/brunocprado/sistemaDistribuido
