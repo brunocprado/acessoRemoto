@@ -1,0 +1,3 @@
+[submodule "js/software/sistemaDistribuido"]
+	path = js/software/sistemaDistribuido
+	url = git://github.com/brunocprado/sistemaDistribuido.git
